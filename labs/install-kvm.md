@@ -139,3 +139,6 @@ virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 ```
+
+## Nguồn
+https://www.linuxtechi.com/install-kvm-hypervisor-on-centos-7-and-rhel-7/
