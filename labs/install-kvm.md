@@ -1,4 +1,4 @@
-# Cài đặt KVM Hypervisor trên CentOS 7
+# Cài đặt KVM Hypervisor, tạo VM trên CentOS 7
 ---
 ## Tổng quan KVM
 (xem thêm docs)
