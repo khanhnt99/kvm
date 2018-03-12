@@ -50,6 +50,7 @@ yum install "@X Window System" xorg-x11-xauth xorg-x11-fonts-* xorg-x11-utils -y
 virt-manager
 ```
 __Giao diện__
+
 ![](../images/install-kvm-1.png)
 ### Phần 3: Cấu hình Bridge KVM
 #### Bước 1: Cấu hình card mạng KVM node
@@ -139,6 +140,35 @@ virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 ```
+
+## Phần 4: Up images các OS dùng trong KVM
+### Bước 1: Up image OS về mấy cá nhân hoặc KVM node
+> Sử dụng ftp up lên KVM node trong trường hợp bản cài OS đã có trong máy
+### Bước 2: Chuyển images tới thư mục
+```
+mv image_os.iso /var/lib/libvirt/images/
+```
+### Bước 3: Thiết lập quyền truy cập image
+```
+chmod 777 /var/lib/libvirt/images/image_os
+```
+
+## Phần 5: Tạo máy ảo thông qua virt-manager
+### Bước 1: Chọn tạo mới VM
+![](../images/install-kvm-2.png)
+### Bước 2: Cài từ images có sẵn
+![](../images/install-kvm-3.png)
+### Bước 3: Chọn đĩa cài
+![](../images/install-kvm-4.png)
+### Bước 4: Xác nhận loại đĩa
+![](../images/install-kvm-5.png)
+### Bước 5: Cấu hình máy ảo
+![](../images/install-kvm-6.png)
+### Bước 6: Chọn thiết lập boot
+![](../images/install-kvm-7.png)
+### Bước 7: Kết quả
+![](../images/install-kvm-8.png)
+
 
 ## Nguồn
 https://www.linuxtechi.com/install-kvm-hypervisor-on-centos-7-and-rhel-7/
