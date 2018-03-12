@@ -60,27 +60,11 @@ vi ifcfg-ens33
 ```
 Nội dung
 ```
-TYPE="Ethernet"
-BOOTPROTO=static    # Cần phải gán IP tính
-IPADDR=192.168.2.133
-GATEWAY=192.168.2.2
-DEFROUTE="yes"
-PEERDNS="yes"
-PEERROUTES="yes"
-IPV4_FAILURE_FATAL="no"
-IPV6INIT="yes"
-IPV6_AUTOCONF="yes"
-IPV6_DEFROUTE="yes"
-IPV6_PEERDNS="yes"
-IPV6_PEERROUTES="yes"
-IPV6_FAILURE_FATAL="no"
-IPV6_ADDR_GEN_MODE="stable-privacy"
-NAME="ens33"
-UUID="908a3370-6a4b-4f4f-8bd1-3f03bae90528"
-DEVICE="ens33"
-ONBOOT="yes"
-BRIGDE=br0      # Lưu ý brigde sang địa chỉ này
-
+DEVICE=ens33
+TYPE=Ethernet
+ONBOOT=yes
+BRIDGE=br0
+BOOTPROTO=static
 ```
 #### Bước 2: Cấu hình card mạng brigde
 ```
@@ -90,14 +74,17 @@ vi ifcfg-br0
 Nội dung
 ```
 TYPE=Bridge
-BOOTPROTO=static
+BOOTPROTO=none
+IPADDR=192.168.2.133
+GATEWAY=192.168.2.2
+NETMASK=255.255.255.0
+DNS1=192.168.2.2
+
 NAME="br0"
 DEVICE="br0"
 ONBOOT="yes"
-IPADDR=192.168.2.150
-NETMASK=255.255.255.0
-GATEWAY=192.168.2.2
-DNS1=192.168.2.2
+BRIGDE=br0
+
 ```
 #### Bước 3: Khởi động lại card mạng
 ```
@@ -105,40 +92,38 @@ service network restart
 ```
 __KẾT QUẢ__
 ```
-br0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
-        inet 192.168.2.150  netmask 255.255.255.0  broadcast 192.168.2.255
-        ether d2:b2:84:9e:df:cd  txqueuelen 1000  (Ethernet)
-        RX packets 0  bytes 0 (0.0 B)
+br0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.2.133  netmask 255.255.255.0  broadcast 192.168.2.255
+        inet6 fe80::20c:29ff:fef8:1c51  prefixlen 64  scopeid 0x20<link>
+        ether 00:0c:29:f8:1c:51  txqueuelen 1000  (Ethernet)
+        RX packets 31055  bytes 1860666 (1.7 MiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 0  bytes 0 (0.0 B)
+        TX packets 62635  bytes 47007858 (44.8 MiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 192.168.2.133  netmask 255.255.255.0  broadcast 192.168.2.255
-        inet6 fe80::c13f:a265:4dad:982f  prefixlen 64  scopeid 0x20<link>
         ether 00:0c:29:f8:1c:51  txqueuelen 1000  (Ethernet)
-        RX packets 2920426  bytes 2239202293 (2.0 GiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 4796572  bytes 2889719378 (2.6 GiB)
+        RX packets 3055441  bytes 2249618953 (2.0 GiB)
+        RX errors 0  dropped 2  overruns 0  frame 0
+        TX packets 5143968  bytes 3178592295 (2.9 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         inet 127.0.0.1  netmask 255.0.0.0
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
         loop  txqueuelen 1  (Local Loopback)
-        RX packets 2655210  bytes 137587525244 (128.1 GiB)
+        RX packets 2850763  bytes 142759250632 (132.9 GiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 2655210  bytes 137587525244 (128.1 GiB)
+        TX packets 2850763  bytes 142759250632 (132.9 GiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 virbr0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         inet 192.168.122.1  netmask 255.255.255.0  broadcast 192.168.122.255
         ether 52:54:00:b1:44:4e  txqueuelen 1000  (Ethernet)
-        RX packets 1229  bytes 98657 (96.3 KiB)
+        RX packets 1921  bytes 155378 (151.7 KiB)
         RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 1922  bytes 1721426 (1.6 MiB)
+        TX packets 2113  bytes 1746118 (1.6 MiB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-
 ```
 
 ## Phần 4: Up images các OS dùng trong KVM
