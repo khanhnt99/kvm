@@ -130,7 +130,7 @@ virsh net-info routed
 ```
 
 ### Chỉnh sửa virtual network
-Trước khi thay đổi cấu hình virtual network, cần dựng virtual network đang chạy
+Trước khi thay đổi cấu hình virtual network, cần dừng virtual network đang chạy
 ```
 virsh net-destroy routed
 ```
