@@ -33,7 +33,7 @@ virt-manager
 ![](../images/install-kvm-8.png)
 
 ### Phần 3: Thiết lập thông số cho VM
-> Các sử đổi yêu cầu tắt máy ảo
+> Các sửa đổi yêu cầu tắt máy ảo
 
 #### Bước 1: Chọn VM cần sử đổi > Chọn Open
 ![](../images/setup-vm-1.png)
