@@ -1,16 +1,15 @@
 # Mảng ảo trong KVM
 ---
 ## Tổng quan
-1 thành phần chính của libvirt networking là virtual network switch, còn được gọi là bridge. Bridge tương tự physical switch
+Thành phần chính trong libvirt networking là virtual network switch, còn được gọi là bridge. Về cơ bản Bridge tương tự như physical switch.
 
-Khác với switch thật, có nhưng giới hạn limited number vế sô physical port có thế kết nối tới Server - Trên Linux bridge không có những giới hạn về số port ảo (virtual ports) có thể sử dụng cho các VM.
+Với switch thật, có nhưng giới hạn (limited) vế số physical port có thế sử dụng để kết nối tới Host. Tại Linux bridge sẽ không có những giới hạn về số port ảo (virtual ports) sử dụng cho kết nối tới VMs.
 
 > Similar to a physical switch, bridge learns the MAC addresses from the packets it receives and stores those MAC addresses in the MAC table. The packet (frames) forwarding decisions are taken based on the MAC addresses that it learned and stored in the MAC table
 
-Với interfaces attached tới port trong bridge. Những interfaces thuộc special network devices được gọi là TAP device.
+Có như interface đặc biệt trong bridge. Những interfaces thuộc special network devices được gọi là TAP device.
 
-TAP devices tương tự network cable chuyển Ethernet frames giữa virtual machine với bridge.
-TAP device là 1 phần của TUN/ TAP implementation available within the Linux kernel.
+TAP devices tương tự network cable chuyển Ethernet frames giữa virtual machine với bridge. TAP device là 1 phần của TUN/ TAP implementation available within the Linux kernel.
 
 > TUN, which stands for "tunnel", simulates a network layer device and it operates at OSI reference model's layer 3 packets, such as IP packets. TAP (namely a network tap) simulates a link layer device and it operates at OSI reference model's layer 2 packets, such as Ethernet frames. TUN is used with routing, while TAP is used to create a network bridge.
 
@@ -93,8 +92,9 @@ virsh net-start isolated
 
 
 ### Routed virtual network
-Virtual network kết nối tới physical network sử dụng phương pháp IP routes  kết nối tới hypervisor.
-Phương pháp IP routes được sử dụng để định tuyến traffic từ virtual machines tới network attached trong hypervisor.
+Virtual network kết nối tới physical network thông qua phương pháp IP routes để kết nối tới hypervisor.
+Phương pháp định tuyến traffic từ virtual machines tới network attached trong hypervisor và ngược lại.
+
 Vấn đề cân lưu ý là setup IP chính xác cho việc định tuyến tới router hoặc gateway device
 
 > This mode is not commonly used, unless you have a special use case to create a network with this complexity.
