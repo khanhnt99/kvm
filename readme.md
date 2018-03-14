@@ -2,6 +2,7 @@
 ---
 # Lý thuyết
 ## [1. Tổng quan về KVM](docs/KVM-overview.md)
+## [2. Network trong KVM](docs/KVM-Networking.md)
 ## [2. Network bridge](docs/KVM-brigde.md)
 
 # Lab
