@@ -47,5 +47,6 @@ virt-manager
 2. Chọn Network
 3. Chọn Network source cần
 4. Chọn Finish
+5. Bật lại VM, kiếm tra kết quả
 
 ![](../images/setup-vm-3.png)
