@@ -147,11 +147,13 @@ virsh net-start routed
 ```
 
 ### NATed virtual network
-Mạng ảo sử dụng nhiều nhất khi yêu cầu lab, test môi trượng trên Laptop hoặc PC cá nhân. Nó cho phép VM kết nối tới mạng ngoài đơn giản, không yêu cầu cấu hình thêm.
+Mạng ảo sử dụng nhiều nhất khi yêu cầu lab, test môi trường trên Laptop hoặc PC cá nhân. Nó cho phép VM kết nối tới mạng ngoài đơn giản, không yêu cầu cấu hình thêm.
 
 Phương pháp cũng cho phép Host tương tác được với VMs. Hạn chế lớn nhất là các Host cùng dải mạng với Host base VM không thể kết nối tới VMs được.
 
 NAT virtual network được tạo với iptables, cùng các rule nhất định. Vì vậy, cần lưu ý khi cấu hình Iptables đối với các VMs Nat, chúng có thể ảnh hưởng tới Host thật.
+
+__Kiến trúc__
 
 ![](../images/kvm-type-network-18.png)
 
