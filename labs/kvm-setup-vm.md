@@ -35,7 +35,7 @@ virt-manager
 ### Phần 3: Thiết lập thông số cho VM
 > Các sửa đổi yêu cầu tắt máy ảo
 
-#### Bước 1: Chọn VM cần sử đổi > Chọn Open
+#### Bước 1: Chọn VM cần sửa đổi > Chọn Open
 ![](../images/setup-vm-1.png)
 #### Bước 2: Chọn Show detail
 ![](../images/setup-vm-2.png)
