@@ -183,3 +183,7 @@ __Các bước cơ bản để tạo bridge:__
 __Chi tiết về các tạo bridge__
 
 [xem thêm tài liệu](KVM-brigde.md)
+
+## Nguồn
+https://jamielinux.com/docs/libvirt-networking-handbook/bridged-network.html
+https://wiki.libvirt.org/page/VirtualNetworking#Virtual_network_switches
