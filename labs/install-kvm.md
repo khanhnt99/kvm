@@ -139,6 +139,7 @@ chmod 777 /var/lib/libvirt/images/image_os
 ```
 
 ## Phần 5: Tạo máy ảo thông qua virt-manager
+> Import image có sẵn
 ### Bước 1: Chọn tạo mới VM
 ![](../images/install-kvm-2.png)
 ### Bước 2: Cài từ images có sẵn

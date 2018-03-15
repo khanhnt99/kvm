@@ -103,5 +103,7 @@ virt-manager
 ```
 brctl addif br2 ens38
 ```
+> Các thay đổi bằng `brctl` sẽ mất sau khi reboot
+
 #### Kết quả
 ![](../images/kvm-virt-bridge-4.PNG)

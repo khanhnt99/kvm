@@ -13,6 +13,24 @@ mv image_os.iso /var/lib/libvirt/images/
 chmod 777 /var/lib/libvirt/images/image_os
 ```
 ### Phần 2: Tạo mới máy ảo
+#### Tùy chọn 1
+> Tạo mới VM từ đĩa cài OS
+#### Bước 1: Khởi động virt-manager
+```
+virt-manager
+```
+#### Bước 2: Chọn install từ local media
+![](../images/kvm-install-import-1.PNG)
+#### Bước 3: Chọn iso OS (ở đây là ubuntu server 16.04)
+![](../images/kvm-install-import-2.PNG)
+#### Bước 4: Setup ram và cpu cần thiết
+![](../images/kvm-install-import-3.PNG)
+#### Bước 5: Chọn tên OS
+![](../images/kvm-install-import-4.PNG)
+#### Kết quả
+![](../images/kvm-install-import-5.PNG)
+#### Tùy chọn 2
+> Cài từ images có sẵn
 #### Bước 1: Khởi động virt-manager
 ```
 virt-manager
