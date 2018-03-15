@@ -164,14 +164,15 @@ __Cách tạo tương với với isolated network, cần lưu ý__
 
 ### Brigde network
 
+Brigde là cách kết nôi 2 Ethernet segmet với nhau thông qua giao thức độc lập. Các Packet được chuyển tieeso dựa trên Ethenet address, khác với IP address (như router). Phương thức xảy ra tại layer 2, tất cả protocol có thể chạy rõ ràng trên brigde.
+
+Linux brigde code thực thi theo tiêu chuẩn ANSI/IEEE 802.1d. Phiên bản chính thức đầu tiên công bố tại Linux 2.2, tích hợp với kerner từ phiên bản 2.4.
+
+Công việc của Brigde là quyết định đích đến gói tin có hay không cần truyền qua Ethernet, tiết kiệm chí phí, băng thông
+
 Bridged network sử dụng để chia sẻ mạng của thiết bị thật tới các Vm (VMs). Mỗi VM được cung cấp địa chỉ có sẵn của router tại dải mạng thực cung cấp cho host. Bridged networking cho phép VMs kết nối với mạng bên ngoài thông qua card mạng vật lý máy chủ.
 
-__Kiến trúc__
-
+#### Kiến trúc
 ![](../images/KVM-bridge-1.jpg)
-
-__Các bước cơ bản để tạo bridge:__
-
-1. Cấu hình card mạng chia sẻ không có ip (ens33)
-2. Tạo mới interface bridge (br0)
-3. Có thể gán ip tĩnh cho card bridge nhưng không được gán cho card mạng vật lý gán tới bridge (Tùy chọn)
+#### Cách tạo
+[xem thêm tài liệu](KVM-brigde.md)
