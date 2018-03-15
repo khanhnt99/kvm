@@ -107,3 +107,8 @@ brctl addif br2 ens38
 
 #### Kết quả
 ![](../images/kvm-virt-bridge-4.PNG)
+
+### Lưu ý:
+> bridge tạo bởi cmd brctl không nhận trong kvm, reboot mất cấu hình, đã kiểm tra, đã thử + restart service libvirtd đều không nhận
+
+> bridge tạo bởi virt-manage tồn tại vĩnh viễn do tạo file config, cần restart network để apply cấu hình mới
