@@ -86,3 +86,22 @@ ifconfig pbnetwork 192.168.2.150 netmask 255.255.255.0 up
 ```
 #### Kết quả
 ![](../images/kvm-bridge-1.PNG)
+
+### Tùy chọn 3: Cấu hình thông qua Virt-Manager
+#### Bước 1: Khởi động virt-manager
+```
+virt-manager
+```
+#### Bước 2: Chọn Edit > Connection Details > Network interface > Chọn `+`
+![](../images/kvm-virt-bridge-1.PNG)
+#### Bước 3: Chọn interface type = bridge > Forward
+![](../images/kvm-virt-bridge-2.PNG)
+#### Bước 4: Nhập tên, chọn interface bridge > Finish
+![](../images/kvm-virt-bridge-3.PNG)
+
+#### Bước 5: Kết nối bridge với interface thực
+```
+brctl addif br2 ens38
+```
+#### Kết quả
+![](../images/kvm-virt-bridge-4.PNG)
