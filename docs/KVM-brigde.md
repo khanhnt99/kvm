@@ -17,7 +17,8 @@ Bridged network sử dụng để chia sẻ mạng của thiết bị thật t�
 3. Có thể gán ip tĩnh cho card bridge nhưng không được gán cho card mạng vật lý gán tới bridge (Tùy chọn)
 
 ## Cấu hình
-### Bước 1: Cấu hình card mạng thật tại KVM node
+### Tùy chọn 1: Cấu hình thủ công
+#### Bước 1: Cấu hình card mạng thật tại KVM node
 ```
 cd /etc/sysconfig/network-scripts
 vi ifcfg-ens33
@@ -30,7 +31,7 @@ ONBOOT=yes
 BRIDGE=br0
 BOOTPROTO=static
 ```
-### Bước 2: Cấu hình card mạng brigde
+#### Bước 2: Cấu hình card mạng brigde
 ```
 cd /etc/sysconfig/network-scripts
 vi ifcfg-br0
@@ -50,13 +51,37 @@ ONBOOT="yes"
 BRIGDE=br0
 
 ```
-### Bước 3: Khởi động lại card mạng
+#### Bước 3: Khởi động lại card mạng
 ```
 service network restart
 ```
 
-### Kiểm tra card bridge đã có
+#### Kiểm tra card bridge đã có
 ```
 brctl show
 ```
 ![](../images/KVM-bridge-2.PNG)
+
+### Tùy chọn 2: Cấu hình thông qua `brctl`
+#### Bước 1: Tạo bridge interface
+```
+brctl addbr pbnetwork
+```
+#### Bước 2: Gán interfaces tới bridge
+```
+brctl addif pbnetwork ens33
+```
+#### Bước 3: Gán Zero IP tới interface gán bridge
+```
+ifconfig ens33 0.0.0.0
+```
+#### Bước 4: Up bridge interface
+```
+ifconfig pbnetwork up
+```
+#### Bước 5: Cấu hình IP tĩnh cho bridge (Tùy chọn)
+```
+ifconfig pbnetwork 192.168.2.150 netmask 255.255.255.0 up
+```
+#### Kết quả
+![](../images/kvm-bridge-1.PNG)
