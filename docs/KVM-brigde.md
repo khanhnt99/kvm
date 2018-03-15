@@ -63,6 +63,7 @@ brctl show
 ![](../images/KVM-bridge-2.PNG)
 
 ### Tùy chọn 2: Cấu hình thông qua `brctl`
+> Cấu hình sẽ mất sau khi reboot
 #### Bước 1: Tạo bridge interface
 ```
 brctl addbr pbnetwork
