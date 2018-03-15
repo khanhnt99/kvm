@@ -175,4 +175,11 @@ Bridged network sử dụng để chia sẻ mạng của thiết bị thật t�
 #### Kiến trúc
 ![](../images/KVM-bridge-1.jpg)
 #### Cách tạo
+__Các bước cơ bản để tạo bridge:__
+1. Cấu hình card mạng chia sẻ không có ip (ens33)
+2. Tạo mới interface bridge (br0)
+3. Có thể gán ip tĩnh cho card bridge nhưng không được gán cho card mạng vật lý gán tới bridge (Tùy chọn)
+
+__Chi tiết về các tạo bridge__
+
 [xem thêm tài liệu](KVM-brigde.md)
