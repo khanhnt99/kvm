@@ -137,24 +137,5 @@ mv image_os.iso /var/lib/libvirt/images/
 ```
 chmod 777 /var/lib/libvirt/images/image_os
 ```
-
-## Phần 5: Tạo máy ảo thông qua virt-manager
-> Import image có sẵn
-### Bước 1: Chọn tạo mới VM
-![](../images/install-kvm-2.png)
-### Bước 2: Cài từ images có sẵn
-![](../images/install-kvm-3.png)
-### Bước 3: Chọn đĩa cài
-![](../images/install-kvm-4.png)
-### Bước 4: Xác nhận loại đĩa
-![](../images/install-kvm-5.png)
-### Bước 5: Cấu hình máy ảo
-![](../images/install-kvm-6.png)
-### Bước 6: Chọn thiết lập boot
-![](../images/install-kvm-7.png)
-### Bước 7: Kết quả
-![](../images/install-kvm-8.png)
-
-
 ## Nguồn
 https://www.linuxtechi.com/install-kvm-hypervisor-on-centos-7-and-rhel-7/
