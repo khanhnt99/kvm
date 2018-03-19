@@ -1,6 +1,7 @@
 # Network brigde trong KVM
 ---
 __Mục lục__
+
 [Phần 1: Tổng quan](#phan1)
 
 [Phần 2: Kiến trúc](#phan2)
