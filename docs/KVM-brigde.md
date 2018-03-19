@@ -176,5 +176,7 @@ brctl addif br2 ens38
 
 ## Nguồn
 https://github.com/hocchudong/thuctap012017/blob/master/TamNT/Virtualization/docs/Virtual_Switch/1.Linux-Bridge.md#6
+
 https://github.com/thaihust/Thuc-tap-thang-03-2016/blob/master/ThaiPH/VirtualSwitch/Linux-bridge/ThaiPH_tim_hieu_linux_bridge.md
+
 http://www.innervoice.in/blogs/2013/12/02/linux-bridge-virtual-networking/
